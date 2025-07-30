@@ -1,0 +1,45 @@
+<nav class="bg-[#0e0e14] shadow-lg border-b border-zinc-800 w-full z-50">
+  <div class="max-w-screen-xl mx-auto flex justify-between items-center px-6 py-4">
+
+    <a routerLink="/" class="text-2xl font-bold tracking-widest text-orange-500 uppercase hover:text-orange-400 transition">
+      FORTADER GYM
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-x-10 text-sm text-zinc-200 uppercase font-medium">
+      
+      <li class="flex items-center gap-2 hover:text-orange-400 transition">
+        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8l2 2m-6 0h.01" />
+        </svg>
+        <a routerLink="/">Inicio</a>
+      </li>
+
+      <li class="flex items-center gap-2 hover:text-orange-400 transition">
+        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3v18m4.5-18v18m-9-4.5h18" />
+        </svg>
+        <a routerLink="/servicios">Servicios</a>
+      </li>
+
+      <li class="flex items-center gap-2 hover:text-orange-400 transition">
+        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+        </svg>
+        <a routerLink="/productos">Productos</a>
+      </li>
+
+      <li class="flex items-center gap-2 hover:text-orange-400 transition">
+        <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.656 0 3-1.344 3-3s-1.344-3-3-3-3 1.344-3 3 1.344 3 3 3zm0 2c-2.67 0-8 1.337-8 4v1h16v-1c0-2.663-5.33-4-8-4z" />
+        </svg>
+        <a routerLink="/nosotros">Nosotros</a>
+      </li>
+    </ul>
+
+    <button class="lg:hidden text-zinc-200 hover:text-orange-500 transition">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+</nav>
