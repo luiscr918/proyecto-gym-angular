@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
-import { NavBarComponent } from "../../nav-bar/nav-bar.component";
-import { FooterComponentComponent } from "../../footer-component/footer-component.component";
-
+import { ProductsService } from '../../../services/products.service';
+import { Producto } from '../../../interfaces/productos';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [NavBarComponent, FooterComponentComponent],
+  imports: [CommonModule],
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-
+  constructor(private servicioProducto: ProductsService) {}
+  productos: Producto[] = [];
+  ngOnInit() {
+    this.servicioProducto.getProducts().subscribe((data) => {
+      this.productos = data.productos;
+      console.log(data);
+    });
+  }
 }
