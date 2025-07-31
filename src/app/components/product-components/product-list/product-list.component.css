@@ -1,40 +1,21 @@
-.night-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-}
-
-.stars, .stars2, .stars3 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png") repeat top center;
-  animation: moveStars 100s linear infinite;
-  opacity: 0.5;
-}
-
-.stars2 {
-  background-image: url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png");
-  animation: moveStars 150s linear infinite;
-  opacity: 0.3;
-}
-
-.stars3 {
-  background-image: url("https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png");
-  animation: moveStars 200s linear infinite;
-  opacity: 0.2;
-}
-
-@keyframes moveStars {
+@keyframes scrollBg {
   from {
-    transform: translateY(0);
+    transform: translateY(0px);
   }
   to {
-    transform: translateY(-1000px);
+    transform: translateY(-330px);
   }
+}
+
+.scroll-bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+  background-color: #e8ba9b;
+  background-image: url("https://andreivictor.ro/codepen/scroll-bg-animation-pinterest/bg_pasta_grid-3f880df3.jpg");
+  background-size: cover;
+  animation: scrollBg 35s linear forwards;
 }
