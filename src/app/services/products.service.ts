@@ -11,9 +11,7 @@ export class ProductsService {
 
   private API_PRODUCTOS = 'https://app-gym-74b74-default-rtdb.firebaseio.com/';
 
-  getProducts = (): Observable<{ productos: Producto[] }> => {
-    return this.http.get<{ productos: Producto[]}>(
-      `${this.API_PRODUCTOS}/productos.json`
-    );
+  getProducts = (): Observable<Producto[]> => {
+    return this.http.get<Producto[]>(`${this.API_PRODUCTOS}/productos.json`);
   };
 }

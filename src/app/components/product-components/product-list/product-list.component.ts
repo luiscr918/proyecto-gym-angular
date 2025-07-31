@@ -14,7 +14,7 @@ export class ProductListComponent {
   productos: Producto[] = [];
   ngOnInit() {
     this.servicioProducto.getProducts().subscribe((data) => {
-      this.productos = data.productos;
+      this.productos = data; 
       console.log(data);
     });
   }
