@@ -1,32 +1,21 @@
 import { Component } from '@angular/core';
-import { ProductsService } from '../../../services/products.service';
-import { ProductoConId } from '../../../interfaces/productos';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+
 @Component({
-  selector: 'app-product-list',
+  selector: 'app-contact-us-component',
   standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css',
+  imports: [],
+  templateUrl: './contact-us-component.component.html',
+  styleUrl: './contact-us-component.component.css',
 })
-export class ProductListComponent {
-  constructor(private servicioProducto: ProductsService) {}
-  productos: ProductoConId[] = [];
-  ngOnInit() {
-    this.servicioProducto.getProducts().subscribe((data) => {
-      this.productos = data;
-      console.log('Productos con ID:', this.productos);
-    });
-  }
+export class ContactUsComponentComponent {
   // codigo para animacion de el titulo
 
   ngAfterViewInit(): void {
     // El código del script se coloca aquí dentro
     const words = [
-      'Descubre los productos fitness',
-      'Suplementos de alta calidad',
-      '¡Entrena al máximo!',
+      'Contactos',
+      'Transforma tu cuerpo, supera tus límites',
+      'Entrena con pasión, entrena con nosotros',
     ];
     let i = 0;
     let j = 0;
