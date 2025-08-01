@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ProductsService } from '../../../services/products.service';
 import { Producto } from '../../../interfaces/productos';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavBarComponent } from "../../nav-bar/nav-bar.component";
-import { FooterComponentComponent } from "../../footer-component/footer-component.component";
+import { NavBarComponent } from '../../nav-bar/nav-bar.component';
+import { FooterComponentComponent } from '../../footer-component/footer-component.component';
 
 @Component({
   selector: 'app-product-datails',
@@ -37,9 +37,9 @@ export class ProductDatailsComponent {
       this.servicioProducto.getProductById(id).subscribe((producto) => {
         if (producto) {
           this.producto = { id, ...producto };
-          console.log('Producto:', this.producto);
+          /* console.log('Producto:', this.producto); */
         } else {
-          console.warn('Producto no encontrado con ID:', id);
+          alert('Producto no encontrado con ID:');
         }
       });
     });
