@@ -260,7 +260,7 @@
     box-shadow: 0 12px 35px rgba(249, 115, 22, 0.2);
 }
 
-
+/* Stats Counter */
 .hero-stats {
     opacity: 0;
     animation: fadeInUp 1s ease-out 2.5s forwards;
