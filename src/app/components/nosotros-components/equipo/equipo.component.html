@@ -6,7 +6,7 @@
          [class.translate-y-8]="!titleVisible"
          class="transition-all duration-700">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        Nuestro <span class="text-red-500">Equipo</span>
+        Nuestro <span class="from-orange-400">Equipo</span>
       </h2>
       <p class="text-xl text-gray-300 max-w-3xl mx-auto">
         Conoce a los profesionales dedicados que harán realidad tus metas de fitness
@@ -22,7 +22,7 @@
       @for (member of teamMembers; track member.id) {
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
           
-          <div class="relative h-80 bg-gradient-to-br from-red-500 to-red-600 overflow-hidden">
+          <div class="relative h-80 bg-gradient-to-br from-orange-400 to-orange-600 overflow-hidden">
             <div class="absolute inset-0 bg-black opacity-20"></div>
             <div class="absolute bottom-4 left-4 right-4">
               <h3 class="text-2xl font-bold text-white mb-1">{{ member.name }}</h3>
@@ -34,7 +34,7 @@
           <div class="p-6">
             
             <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4">
+              <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
@@ -50,7 +50,7 @@
               <h4 class="text-white font-semibold mb-2">Especialidades:</h4>
               <div class="flex flex-wrap gap-2">
                 @for (specialty of member.specialties; track specialty) {
-                  <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                  <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">
                     {{ specialty }}
                   </span>
                 }
@@ -77,7 +77,7 @@
 
             
             <div class="mt-6 pt-4 border-t border-gray-700">
-              <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-red-600 hover:to-red-700 transform hover:scale-105 transition-all duration-300">
+              <button class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-black hover:to-orange-700 transform hover:scale-105 transition-all duration-300">
                 Consulta Personalizada
               </button>
             </div>
@@ -96,10 +96,10 @@
         Nuestro equipo está aquí para ayudarte a alcanzar tus objetivos. Agenda una consulta gratuita y descubre cómo podemos transformar tu vida.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-lg transform hover:scale-105 transition-all duration-300">
+        <button class="bg-orange-500 hover:bg-black text-white font-semibold py-3 px-8 rounded-lg transform hover:scale-105 transition-all duration-300">
           Agenda tu Consulta
         </button>
-        <button class="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300">
+        <button class="border-2 border-orange-500 text-red-500 hover:bg-orange-500 hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300">
           Conocer Planes
         </button>
       </div>
