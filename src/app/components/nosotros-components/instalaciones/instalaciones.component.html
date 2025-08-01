@@ -1,0 +1,144 @@
+<section class="py-20 bg-gray-900" #instalacionesSection>
+  <div class="container mx-auto px-4">
+    
+    <div class="text-center mb-16" 
+         [class.opacity-0]="!titleVisible"
+         [class.translate-y-8]="!titleVisible"
+         class="transition-all duration-700">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Nuestras <span class="text-red-500">Instalaciones</span>
+      </h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+        Descubre espacios diseñados para maximizar tu entrenamiento con equipamiento de última generación
+      </p>
+    </div>
+
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" 
+         [class.opacity-0]="!statsVisible"
+         [class.translate-y-8]="!statsVisible"
+         class="transition-all duration-700">
+      
+      <div class="text-center bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-3xl font-bold text-red-500 mb-2">{{ stats.totalArea }}</div>
+        <div class="text-gray-300 text-sm">m² Totales</div>
+      </div>
+      
+      <div class="text-center bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-3xl font-bold text-red-500 mb-2">{{ stats.totalEquipment }}+</div>
+        <div class="text-gray-300 text-sm">Equipos</div>
+      </div>
+      
+      <div class="text-center bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-3xl font-bold text-red-500 mb-2">{{ stats.totalCapacity }}</div>
+        <div class="text-gray-300 text-sm">Capacidad Total</div>
+      </div>
+      
+      <div class="text-center bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors duration-300">
+        <div class="text-3xl font-bold text-red-500 mb-2">{{ stats.facilities }}</div>
+        <div class="text-gray-300 text-sm">Áreas Especializadas</div>
+      </div>
+    </div>
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" 
+         [class.opacity-0]="!facilitiesVisible"
+         [class.translate-y-8]="!facilitiesVisible"
+         class="transition-all duration-700">
+      
+      @for (facility of facilities; track facility.id) {
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 group">
+          
+          <div class="bg-gradient-to-r from-red-500 to-red-600 p-6">
+            <h3 class="text-2xl font-bold text-white mb-2">{{ facility.name }}</h3>
+            <p class="text-red-100 text-sm">{{ facility.description }}</p>
+          </div>
+
+          
+          <div class="p-6">
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-red-500">{{ facility.area }}</div>
+                <div class="text-gray-400 text-sm">Área</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-red-500">{{ facility.capacity }}</div>
+                <div class="text-gray-400 text-sm">Capacidad</div>
+              </div>
+            </div>
+
+            
+            <div class="mb-6">
+              <h4 class="text-white font-semibold mb-3 flex items-center">
+                <svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Características
+              </h4>
+              <div class="space-y-2">
+                @for (feature of facility.features; track feature) {
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mr-3"></div>
+                    <span class="text-gray-300 text-sm">{{ feature }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+
+            
+            @if (facility.equipment && facility.equipment.length > 0) {
+              <div class="mb-6">
+                <h4 class="text-white font-semibold mb-3 flex items-center">
+                  <svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                  </svg>
+                  Equipamiento
+                </h4>
+                <div class="space-y-2">
+                  @for (equipment of facility.equipment; track equipment) {
+                    <div class="bg-gray-700 rounded-lg p-2">
+                      <span class="text-gray-300 text-sm">{{ equipment }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            
+            <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-red-600 hover:to-red-700 transform hover:scale-105 transition-all duration-300">
+              Ver en Tour Virtual
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    
+    <div class="mt-16 bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 text-center" 
+         [class.opacity-0]="!facilitiesVisible"
+         [class.translate-y-8]="!facilitiesVisible"
+         class="transition-all duration-700 delay-300">
+      <h3 class="text-3xl font-bold text-white mb-4">¿Quieres conocer más?</h3>
+      <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+        Agenda una visita guiada gratuita y descubre por qué somos el mejor gimnasio de la ciudad. 
+        Nuestro equipo te mostrará todas las instalaciones y te ayudará a encontrar el plan perfecto para ti.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-8 rounded-lg transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          Tour Virtual 360°
+        </button>
+        
+        <button class="border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          Agendar Visita
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
