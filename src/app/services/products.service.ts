@@ -43,6 +43,9 @@ export class ProductsService {
   };
   //actualizar Producto
   actualizarProducto = (id: string, producto: Producto): Observable<any> => {
-    return this.http.put(`${this.API_PRODUCTOS}/clientes/${id}.json`, producto);
+    return this.http.put(
+      `${this.API_PRODUCTOS}/productos/${id}.json`,
+      producto
+    );
   };
 }
