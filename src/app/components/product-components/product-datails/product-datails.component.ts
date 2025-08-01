@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../../services/products.service';
 import { Producto } from '../../../interfaces/productos';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from '../../nav-bar/nav-bar.component';
 import { FooterComponentComponent } from '../../footer-component/footer-component.component';
 
 @Component({
   selector: 'app-product-datails',
   standalone: true,
-  imports: [NavBarComponent, FooterComponentComponent],
+  imports: [NavBarComponent, FooterComponentComponent,RouterLink],
   templateUrl: './product-datails.component.html',
   styleUrl: './product-datails.component.css',
 })
@@ -44,4 +44,16 @@ export class ProductDatailsComponent {
       });
     });
   }
+  eliminarProduct = (id: string) => {
+    this.servicioProducto.eliminarProducto(id).subscribe(
+      () => {
+        /*  this.clientes=this.clientes.filter(cliente=>cliente.id !== id); */
+        alert('producto eliminado');
+        window.location.reload();
+      },
+      (error) => {
+        console.log('error al eliminar el producto', error);
+      }
+    );
+  };
 }

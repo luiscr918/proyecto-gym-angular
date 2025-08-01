@@ -10,8 +10,15 @@ export class ProductsService {
   constructor(private http: HttpClient) {}
 
   private API_PRODUCTOS = 'https://app-gym-74b74-default-rtdb.firebaseio.com/';
-
- getProducts(): Observable<ProductoConId[]> {
+  //guardar Producto
+  guardarProducto = (producto: Producto): Observable<{ name: string }> => {
+    return this.http.post<{ name: string }>(
+      `${this.API_PRODUCTOS}/productos.json`,
+      producto
+    );
+  };
+  //obtener los productos
+  getProducts(): Observable<ProductoConId[]> {
     return this.http
       .get<{ [key: string]: Producto }>(`${this.API_PRODUCTOS}/productos.json`)
       .pipe(
@@ -19,13 +26,23 @@ export class ProductsService {
           if (!data) return [];
           return Object.entries(data).map(([id, producto]) => ({
             id,
-            ...producto
+            ...producto,
           }));
         })
       );
   }
   //buscar por id el producto
-getProductById(id: string): Observable<Producto> {
-  return this.http.get<Producto>(`${this.API_PRODUCTOS}/productos/${id}.json`);
-}
+  getProductById(id: string): Observable<Producto> {
+    return this.http.get<Producto>(
+      `${this.API_PRODUCTOS}/productos/${id}.json`
+    );
+  }
+  //eliminar
+  eliminarProducto = (id: string): Observable<any> => {
+    return this.http.delete(`${this.API_PRODUCTOS}/productos/${id}.json`);
+  };
+  //actualizar Producto
+  actualizarProducto = (id: string, producto: Producto): Observable<any> => {
+    return this.http.put(`${this.API_PRODUCTOS}/clientes/${id}.json`, producto);
+  };
 }
