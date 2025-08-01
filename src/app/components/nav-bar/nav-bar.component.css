@@ -5,16 +5,12 @@ nav {
 }
 
 .nav-transparent {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-.nav-solid {
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.95));
-    border-bottom: 1px solid rgba(234, 88, 12, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
+/* Clase nav-solid eliminada - navbar ahora es solo transparente */
 
 .nav-item {
     position: relative;
@@ -118,10 +114,10 @@ nav::before {
 }
 
 @media (max-width: 1023px) {
-
-    .nav-transparent,
-    .nav-solid {
-        background: rgba(0, 0, 0, 0.9);
+    .nav-transparent {
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
     }
 }
 

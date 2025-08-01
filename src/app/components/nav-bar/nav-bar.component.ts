@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -11,12 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 export class NavBarComponent {
   isMenuOpen = false;
-  isScrolled = false;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.pageYOffset > 50;
-  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
