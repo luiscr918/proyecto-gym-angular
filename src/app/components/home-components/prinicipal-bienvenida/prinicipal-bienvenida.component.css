@@ -11,7 +11,7 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Background Elements */
+
 .section-background {
   pointer-events: none;
 }
@@ -51,7 +51,7 @@
   100% { transform: translate(50px, 50px); }
 }
 
-/* Floating Orbs */
+
 .floating-orbs {
   position: absolute;
   inset: 0;
@@ -104,7 +104,7 @@
   }
 }
 
-/* Visual Section */
+
 .visual-section {
   opacity: 0;
   transform: scale(0.8) rotate(-10deg);
@@ -116,7 +116,7 @@
   transform: scale(1) rotate(0deg);
 }
 
-/* Logo Container */
+
 .logo-container {
   position: relative;
   display: flex;
@@ -126,7 +126,7 @@
   min-height: 400px;
 }
 
-/* Logo Background Rings */
+
 .logo-bg-rings {
   position: absolute;
   inset: 0;
@@ -169,7 +169,7 @@
   to { transform: rotate(360deg); }
 }
 
-/* Main Logo */
+
 .main-logo {
   display: flex;
   flex-direction: column;
@@ -218,7 +218,7 @@
   font-weight: 600;
 }
 
-/* Decorative Elements */
+
 .decorative-elements {
   position: absolute;
   inset: 0;
@@ -289,7 +289,7 @@
   }
 }
 
-/* Section Badge */
+
 .section-badge {
   opacity: 0;
   transform: translateY(20px);
@@ -315,7 +315,7 @@
   font-size: 0.875rem;
 }
 
-/* Section Title */
+
 .section-title {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
@@ -339,7 +339,7 @@
   background-clip: text;
 }
 
-/* Main Description */
+
 .main-description {
   opacity: 0;
   transform: translateY(20px);
@@ -358,7 +358,7 @@
   margin-bottom: 1.5rem;
 }
 
-/* Features List */
+
 .features-list {
   opacity: 0;
   transform: translateY(20px);
@@ -414,7 +414,7 @@
   line-height: 1.6;
 }
 
-/* CTA Container */
+
 .cta-container {
   opacity: 0;
   transform: translateY(20px);
@@ -477,7 +477,7 @@
   opacity: 1;
 }
 
-/* Stats Section */
+
 .stats-section {
   opacity: 0;
   transform: translateY(50px);
@@ -509,7 +509,7 @@
   font-size: 1.125rem;
 }
 
-/* Stats Grid */
+
 .stats-grid {
   gap: 2rem;
 }
@@ -598,7 +598,7 @@
   opacity: 1;
 }
 
-/* Responsive Design */
+
 @media (max-width: 1024px) {
   .content-grid {
     grid-template-columns: 1fr;
@@ -649,7 +649,7 @@
   }
 }
 
-/* Performance Optimizations */
+
 .visual-section,
 .stat-card,
 .feature-item,
@@ -657,7 +657,7 @@
   will-change: transform, opacity;
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .orb,
   .ring-1, .ring-2, .ring-3,

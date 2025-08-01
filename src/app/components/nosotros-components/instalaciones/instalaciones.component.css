@@ -1,4 +1,4 @@
-/* Animaciones personalizadas */
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-/* Animaciones escalonadas para las tarjetas */
+
 .facility-card {
   animation: fadeInScale 0.6s ease-out forwards;
 }
@@ -42,12 +42,12 @@
 .facility-card:nth-child(5) { animation-delay: 0.5s; }
 .facility-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Efectos hover para las estadísticas */
+
 .stats-card:hover {
   animation: pulseGlow 2s ease-in-out infinite;
 }
 
-/* Efectos de gradiente en motion */
+
 .gradient-shift {
   background: linear-gradient(45deg, #ef4444, #dc2626, #ef4444);
   background-size: 200% 200%;
@@ -60,7 +60,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Efectos de hover para las instalaciones */
+
 .group:hover .facility-header {
   background: linear-gradient(45deg, #dc2626, #b91c1c);
 }
@@ -69,7 +69,7 @@
   transition: background 0.3s ease;
 }
 
-/* Animaciones para iconos */
+
 .icon-bounce:hover {
   animation: iconBounce 0.6s ease;
 }
@@ -86,7 +86,7 @@
   }
 }
 
-/* Efectos de scroll reveal */
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -98,7 +98,7 @@
   transform: translateY(0);
 }
 
-/* Efectos especiales para botones */
+
 .btn-glow {
   position: relative;
   overflow: hidden;
@@ -119,7 +119,7 @@
   left: 100%;
 }
 
-/* Mejoras responsive */
+
 @media (max-width: 768px) {
   .facilities-grid {
     grid-template-columns: 1fr;
@@ -144,7 +144,7 @@
   }
 }
 
-/* Efectos de carga progresiva */
+
 .loading-placeholder {
   background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
   background-size: 200% 100%;
@@ -160,7 +160,7 @@
   }
 }
 
-/* Personalización de elementos específicos */
+
 .feature-dot {
   animation: dotPulse 2s ease-in-out infinite;
 }
@@ -176,7 +176,7 @@
   }
 }
 
-/* Efectos para el tour virtual */
+
 .virtual-tour-section {
   background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   position: relative;

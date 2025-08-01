@@ -1,4 +1,4 @@
-/* Hero Nosotros Animations */
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -35,7 +35,7 @@
   animation-delay: 800ms;
 }
 
-/* Stats hover effects */
+
 .stats-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -45,7 +45,7 @@
   box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
 }
 
-/* Button effects */
+
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -66,19 +66,19 @@
   left: 100%;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .animate-fade-in-up {
     animation-duration: 0.8s;
   }
 }
 
-/* Performance optimizations */
+
 .hero-section * {
   will-change: transform, opacity;
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .animate-bounce,

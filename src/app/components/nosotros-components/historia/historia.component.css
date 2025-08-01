@@ -1,4 +1,4 @@
-/* Historia Component Animations */
+
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -49,13 +49,13 @@
   animation: timeline-slide-in-right 0.8s ease-out forwards;
 }
 
-/* Timeline hover effects */
+
 .timeline-item:hover .w-6 {
   transform: translateX(-50%) scale(1.2);
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
 }
 
-/* Card hover effects */
+
 .timeline-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -65,12 +65,12 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Milestone special styling */
+
 .milestone-dot {
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 1024px) {
   .timeline-item {
     flex-direction: column !important;
@@ -98,12 +98,12 @@
   }
 }
 
-/* Performance optimizations */
+
 .timeline-item * {
   will-change: transform, opacity;
 }
 
-/* Accessibility */
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .timeline-item,

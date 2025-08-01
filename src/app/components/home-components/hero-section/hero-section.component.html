@@ -25,13 +25,18 @@
       instructores certificados y alcanza tus objetivos más rápido que nunca.
     </p>
     <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-      <button
-        class="cta-primary group relative overflow-hidden bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-        <span class="relative z-10">Comienza Ahora</span>
+      <a routerLink="/suscripcion"
+        class="cta-primary group relative overflow-hidden bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer inline-block">
+        <span class="relative z-10 flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+          Comienza Ahora
+        </span>
         <div
           class="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         </div>
-      </button>
+      </a>
     </div>
     <div class="hero-stats grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
       <div class="stat-item text-center" *ngFor="let stat of stats">

@@ -1,4 +1,4 @@
-/* Animaciones personalizadas */
+
 @keyframes slideInUp {
   from {
     opacity: 0;
@@ -32,7 +32,7 @@
 .team-member-card:nth-child(5) { animation-delay: 0.5s; }
 .team-member-card:nth-child(6) { animation-delay: 0.6s; }
 
-/* Efectos hover personalizados */
+
 .group:hover .team-image {
   transform: scale(1.05);
 }
@@ -41,7 +41,7 @@
   transition: transform 0.3s ease;
 }
 
-/* Efectos de gradiente en botones */
+
 .btn-gradient {
   background: linear-gradient(45deg, #ef4444, #dc2626);
   background-size: 200% 200%;
@@ -54,7 +54,7 @@
   100% { background-position: 0% 50%; }
 }
 
-/* Efectos de scroll reveal */
+
 .scroll-reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -66,7 +66,7 @@
   transform: translateY(0);
 }
 
-/* Responsivo personalizado */
+
 @media (max-width: 768px) {
   .team-grid {
     grid-template-columns: 1fr;

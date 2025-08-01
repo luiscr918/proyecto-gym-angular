@@ -17,37 +17,37 @@ interface Feature {
 export class BienvenidaComponent implements OnInit, AfterViewInit {
   @ViewChild('sectionRef', { static: false }) sectionRef!: ElementRef;
   
-  isVisible = false; // Inicializar como false para las animaciones
-  titleVisible = false; // Inicializar como false para las animaciones
-  subtitleVisible = false; // Inicializar como false para las animaciones
-  featuresVisible = false; // Inicializar como false para las animaciones
-  buttonVisible = false; // Inicializar como false para las animaciones
+  isVisible = false; 
+  titleVisible = false; 
+  subtitleVisible = false; 
+  featuresVisible = false; 
+  buttonVisible = false; 
 
   features: Feature[] = [
     {
       text: 'Entrenamientos diseñados para tus objetivos.',
       icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
-      isVisible: false // Inicializar como false para las animaciones
+      isVisible: false 
     },
     {
       text: 'Equipamiento de última generación.',
       icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-      isVisible: false // Inicializar como false para las animaciones
+      isVisible: false 
     },
     {
       text: 'Guía experta para alcanzar tus metas.',
       icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
-      isVisible: false // Inicializar como false para las animaciones
+      isVisible: false 
     },
     {
       text: 'Un espacio donde la motivación nunca falta.',
       icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
-      isVisible: false // Inicializar como false para las animaciones
+      isVisible: false 
     }
   ];
 
   ngOnInit() {
-    // Iniciar las animaciones automáticamente después de un breve delay
+    
     setTimeout(() => {
       this.startAnimationSequence();
     }, 100);
@@ -75,14 +75,14 @@ export class BienvenidaComponent implements OnInit, AfterViewInit {
   }
 
   startAnimationSequence() {
-    // Reset animations if needed
+    
     this.titleVisible = false;
     this.subtitleVisible = false;
     this.featuresVisible = false;
     this.buttonVisible = false;
     this.features.forEach(f => f.isVisible = false);
 
-    // Start animation sequence
+    
     setTimeout(() => this.titleVisible = true, 100);
     setTimeout(() => this.subtitleVisible = true, 300);
     setTimeout(() => this.featuresVisible = true, 500);
