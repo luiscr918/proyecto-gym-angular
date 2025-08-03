@@ -8,7 +8,7 @@ import { FooterComponentComponent } from '../../footer-component/footer-componen
 @Component({
   selector: 'app-product-datails',
   standalone: true,
-  imports: [NavBarComponent, FooterComponentComponent,RouterLink],
+  imports: [NavBarComponent, FooterComponentComponent, RouterLink],
   templateUrl: './product-datails.component.html',
   styleUrl: './product-datails.component.css',
 })
@@ -37,7 +37,6 @@ export class ProductDatailsComponent {
       this.servicioProducto.getProductById(id).subscribe((producto) => {
         if (producto) {
           this.producto = { id, ...producto };
-          /* console.log('Producto:', this.producto); */
         } else {
           alert('Producto no encontrado con ID:');
         }
@@ -49,7 +48,7 @@ export class ProductDatailsComponent {
       () => {
         /*  this.clientes=this.clientes.filter(cliente=>cliente.id !== id); */
         alert('producto eliminado');
-        window.location.reload();
+        this.router.navigate(['/productos']);
       },
       (error) => {
         console.log('error al eliminar el producto', error);
