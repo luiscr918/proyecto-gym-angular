@@ -1,6 +1,6 @@
-<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out nav-transparent">
+<nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out nav-transparent ">
 
-  <div class="max-w-screen-xl mx-auto flex justify-between items-center px-6 py-4">
+  <div class="max-w-screen-xl mx-auto flex justify-between items-center px-6 py-4 ">
     <a routerLink="/" (click)="closeMenu()"
       class="text-2xl font-bold tracking-widest text-orange-500 uppercase hover:text-orange-400 transition-all duration-300 transform hover:scale-105">
       FORTADER GYM
@@ -27,12 +27,22 @@
       </li>
 
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/productos" class="nav-link">
+        <a routerLink="/productos-usuarios" class="nav-link">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
           </svg>
           <span>Productos</span>
+        </a>
+      </li>
+      <!-- productos admin -->
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="/productos" class="nav-link">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+          <span>Productos Admin</span>
         </a>
       </li>
 
@@ -57,7 +67,8 @@
       </li>
 
       <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/suscripcion" class="nav-link bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg px-4 py-2 text-white">
+        <a routerLink="/suscripcion"
+          class="nav-link bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 rounded-lg px-4 py-2 text-white">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
               d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -77,13 +88,12 @@
       </svg>
     </button>
   </div>
-  <div class="overlay fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
-    [class.hidden]="!isMenuOpen" (click)="closeMenu()"></div>
+  <div class="overlay fixed inset-0 bg-black/50 z-40 transition-opacity duration-300" [class.hidden]="!isMenuOpen"
+    (click)="closeMenu()"></div>
   <div class="mobile-menu lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
     [class.menu-open]="isMenuOpen" [class.menu-closed]="!isMenuOpen">
     <div class="px-6 py-4 space-y-4 bg-black/90 backdrop-blur-md border-t border-white/10">
-      <a routerLink="/" (click)="closeMenu()" routerLinkActive="active"
-        class="mobile-nav-link">
+      <a routerLink="/" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -99,12 +109,20 @@
         <span>Servicios</span>
       </a>
 
-      <a routerLink="/productos" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
+      <a routerLink="/productos-usuarios" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
         </svg>
         <span>Productos</span>
+      </a>
+      <!-- admin productos -->
+      <a routerLink="/productos" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>
+        <span>Productos Admin</span>
       </a>
 
       <a routerLink="/nosotros" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
@@ -123,7 +141,8 @@
         <span>Contactos</span>
       </a>
 
-      <a routerLink="/suscripcion" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link bg-gradient-to-r from-red-500 to-red-600 rounded-lg">
+      <a routerLink="/suscripcion" (click)="closeMenu()" routerLinkActive="active"
+        class="mobile-nav-link bg-gradient-to-r from-red-500 to-red-600 rounded-lg">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
             d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />

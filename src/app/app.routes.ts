@@ -7,15 +7,19 @@ import { RegistroProductoComponent } from './components/product-components/regis
 import { ProductActualizarComponent } from './components/product-components/product-actualizar/product-actualizar.component';
 import { NosotrosPageComponent } from './pages/nosotros-page/nosotros-page.component';
 import { SuscripcionPageComponent } from './pages/suscripcion-page/suscripcion-page.component';
+import { ProductPageAdminComponent } from './pages/product-page-admin/product-page-admin.component';
+import { ProductDetailsUsersComponent } from './components/product-components-usuarios/product-details-users/product-details-users.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'productos', component: ProductsPageComponent },
-
   { path: 'productos/:id', component: ProductDatailsComponent },
   { path: 'contactanos', component: ContactUsPageComponent },
   { path: 'agregar-producto', component: RegistroProductoComponent },
   { path: 'nosotros', component: NosotrosPageComponent },
   { path: 'suscripcion', component: SuscripcionPageComponent },
   { path: 'products/:id', component: ProductActualizarComponent },
+  //usuarios:
+  { path: 'productos-usuarios', component: ProductPageAdminComponent },
+  { path: 'productos-usuario/:id', component: ProductDetailsUsersComponent},
 ];
