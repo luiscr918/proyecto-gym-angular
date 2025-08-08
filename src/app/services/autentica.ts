@@ -1,0 +1,59 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { map, Observable, BehaviorSubject } from 'rxjs';
+import { Usuarios } from './usuarios';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class Autentica {
+    private readonly API_URL = 'http://localhost:3000/usuarios';
+  private usuarioActualSubject = new BehaviorSubject<Usuarios>(new Usuarios());
+  public usuarioActual$ = this.usuarioActualSubject.asObservable();
+
+  constructor(private http: HttpClient) {
+    const usuarioGuardado = localStorage.getItem('user');
+    if (usuarioGuardado) {
+      this.usuarioActualSubject.next(JSON.parse(usuarioGuardado));
+    }
+  }
+
+  login(correo: string, contrasenia: string): Observable<any> {
+    return this.http.get<Usuarios[]>(this.API_URL).pipe(
+      map(usuarios => {
+        const usuario = usuarios.find(u => u.correo === correo && u.contrasenia === contrasenia);
+        if (usuario) {
+          localStorage.setItem('user', JSON.stringify(usuario));
+          this.usuarioActualSubject.next(usuario);
+          return { success: true, user: usuario };
+        } else {
+          return { success: false, message: 'Credenciales incorrectas' };
+        }
+      })
+    );
+  }
+
+  registro(usuario: Usuarios): Observable<Usuarios> {
+    return this.http.post<Usuarios>(this.API_URL, usuario);
+  }
+
+  sesionIniciada(): boolean {
+    const usuario = this.usuarioActualSubject.value;
+    return !!usuario && !!usuario.correo && !!usuario.contrasenia;
+  }
+
+  logout(): void {
+    localStorage.removeItem('usuarios');
+    this.usuarioActualSubject.next(new Usuarios());
+  }
+
+  correoExiste(correo: string): Observable<boolean> {
+    return this.http.get<Usuarios[]>(this.API_URL).pipe(
+      map(usuarios => usuarios.some(u => u.correo === correo))
+    );
+  }
+
+  getUsuarioActual(): Usuarios {
+    return this.usuarioActualSubject.value;
+  }
+}

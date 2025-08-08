@@ -26,25 +26,28 @@
         </a>
       </li>
 
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/productos-usuarios" class="nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-          </svg>
-          <span>Productos</span>
-        </a>
-      </li>
-      <!-- productos admin -->
-      <li class="nav-item" routerLinkActive="active">
-        <a routerLink="/productos" class="nav-link">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-          </svg>
-          <span>Productos Admin</span>
-        </a>
-      </li>
+      @if (usuarioActual?.rol === 'admin') {
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/productos" class="nav-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <span>Productos Admin</span>
+          </a>
+        </li>
+      }
+      @if (usuarioActual?.rol === 'cliente') {
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/productos-usuarios" class="nav-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+            </svg>
+            <span>Productos</span>
+          </a>
+        </li>
+      }
 
       <li class="nav-item" routerLinkActive="active">
         <a routerLink="/nosotros" class="nav-link">
@@ -76,6 +79,18 @@
           <span>Suscríbete</span>
         </a>
       </li>
+
+    
+    <li *ngIf="!sesionIniciada" class="nav-item">
+      <a routerLink="/login" class="nav-link">
+        <span>Iniciar Sesión</span>
+      </a>
+    </li>
+    <li *ngIf="sesionIniciada" class="nav-item">
+      <button (click)="logout()" class="nav-link bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
+        Cerrar Sesión
+      </button>
+    </li>
     </ul>
 
     <button (click)="toggleMenu()"
@@ -93,6 +108,12 @@
   <div class="mobile-menu lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
     [class.menu-open]="isMenuOpen" [class.menu-closed]="!isMenuOpen">
     <div class="px-6 py-4 space-y-4 bg-black/90 backdrop-blur-md border-t border-white/10">
+      <a *ngIf="!sesionIniciada" routerLink="/login" (click)="closeMenu()" class="mobile-nav-link">
+        <span>Iniciar Sesión</span>
+      </a>
+      <button *ngIf="sesionIniciada" (click)="logout(); closeMenu()" class="mobile-nav-link bg-orange-400 hover:bg-orange-600 text-black font-bold py-2 px-4 rounded-lg shadow-md transition duration-300">
+        Cerrar Sesión
+      </button>
       <a routerLink="/" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -109,21 +130,24 @@
         <span>Servicios</span>
       </a>
 
-      <a routerLink="/productos-usuarios" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-        </svg>
-        <span>Productos</span>
-      </a>
-      <!-- admin productos -->
-      <a routerLink="/productos" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-        </svg>
-        <span>Productos Admin</span>
-      </a>
+      @if (usuarioActual?.rol === 'admin') {
+        <a routerLink="/productos" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+          <span>Productos Admin</span>
+        </a>
+      }
+      @if (usuarioActual?.rol === 'cliente') {
+        <a routerLink="/productos-usuarios" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.119-1.243l1.263-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          </svg>
+          <span>Productos</span>
+        </a>
+      }
 
       <a routerLink="/nosotros" (click)="closeMenu()" routerLinkActive="active" class="mobile-nav-link">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
