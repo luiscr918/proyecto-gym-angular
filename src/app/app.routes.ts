@@ -19,16 +19,37 @@ import { authGuard, adminGuard, clienteGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'productos', component: ProductsPageComponent, canActivate: [authGuard, adminGuard] },
-  { path: 'productos/:id', component: ProductDatailsComponent, canActivate: [authGuard, adminGuard] },
+  {
+    path: 'productos',
+    component: ProductsPageComponent,
+    canActivate: [authGuard, adminGuard],
+  },
+  {
+    path: 'productos/:id',
+    component: ProductDatailsComponent,
+    canActivate: [authGuard, adminGuard],
+  },
   { path: 'contactanos', component: ContactUsPageComponent },
   { path: 'agregar-producto', component: RegistroProductoComponent },
   { path: 'nosotros', component: NosotrosPageComponent },
   { path: 'suscripcion', component: SuscripcionPageComponent },
   { path: 'products/:id', component: ProductActualizarComponent },
-  
-  { path: 'productos-usuarios', component: ProductPageAdminComponent, canActivate: [authGuard, clienteGuard] },
-  { path: 'productos-usuario/:id', component: ProductDetailsUsersComponent, canActivate: [authGuard, clienteGuard] },
+
+  {
+    path: 'productos-usuarios',
+    component: ProductPageAdminComponent,
+    canActivate: [authGuard, clienteGuard],
+  },
+  {
+    path: 'productos-usuario/:id',
+    component: ProductDetailsUsersComponent,
+    canActivate: [authGuard, clienteGuard],
+  },
   { path: 'login', component: LoginComponent, canMatch: [loginCanMatchGuard] },
-  { path: 'registrar-usuario', component: RegistroUsuarios, canDeactivate: [registroUsuarioGuard] },
+  {
+    path: 'registrar-usuario',
+    component: RegistroUsuarios,
+    canDeactivate: [registroUsuarioGuard],
+  },
+  { path: 'carrito', component: CarritoPageComponent },
 ];
