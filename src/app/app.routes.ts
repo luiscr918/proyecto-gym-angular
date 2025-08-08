@@ -9,6 +9,7 @@ import { NosotrosPageComponent } from './pages/nosotros-page/nosotros-page.compo
 import { SuscripcionPageComponent } from './pages/suscripcion-page/suscripcion-page.component';
 import { ProductPageAdminComponent } from './pages/product-page-admin/product-page-admin.component';
 import { ProductDetailsUsersComponent } from './components/product-components-usuarios/product-details-users/product-details-users.component';
+import { CarritoPageComponent } from './pages/carrito-page/carrito-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -22,4 +23,11 @@ export const routes: Routes = [
   //usuarios:
   { path: 'productos-usuarios', component: ProductPageAdminComponent },
   { path: 'productos-usuario/:id', component: ProductDetailsUsersComponent},
+
+
+
+
+
+
+  {path:'carrito',component:CarritoPageComponent}
 ];

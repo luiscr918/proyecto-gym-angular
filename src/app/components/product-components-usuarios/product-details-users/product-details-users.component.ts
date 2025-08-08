@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Producto } from '../../../interfaces/productos';
 import { FooterComponentComponent } from '../../footer-component/footer-component.component';
 import { NavBarComponent } from '../../nav-bar/nav-bar.component';
+import { CarritoService } from '../../../services/carrito.service';
 
 @Component({
   selector: 'app-product-details-users',
@@ -15,7 +16,8 @@ import { NavBarComponent } from '../../nav-bar/nav-bar.component';
 export class ProductDetailsUsersComponent {
   constructor(
     private servicioProducto: ProductsService,
-    private ruta: ActivatedRoute
+    private ruta: ActivatedRoute,
+    private servicioCarrito: CarritoService
   ) {}
 
   producto: Producto & { id: string } = {
@@ -42,4 +44,10 @@ export class ProductDetailsUsersComponent {
       });
     });
   }
+  agregarAlCarrito = () => {
+    this.servicioCarrito.agregarCarrito(this.producto).subscribe({
+      next: () => alert('Producto agregado al carrito'),
+      error: () => alert('Error al agregar al carrito'),
+    });
+  };
 }
