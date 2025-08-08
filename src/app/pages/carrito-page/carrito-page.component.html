@@ -18,7 +18,7 @@
                                 <label for={{carrito.id}} class="sr-only">Choose quantity:</label>
                                 <div class="flex items-center justify-between md:order-3 md:justify-end">
                                     <div class="flex items-center">
-                                        <button type="button" id="decrement-button"
+                                        <button (click)="disminuirCantidad()" type="button" id="decrement-button"
                                             data-input-counter-decrement="counter-input"
                                             class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100">
                                             <svg class="h-2.5 w-2.5 text-gray-900" aria-hidden="true"
@@ -27,10 +27,9 @@
                                                     stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
                                             </svg>
                                         </button>
-                                        <input id={{carrito.id}} type="text" data-input-counter
-                                            class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-white focus:outline-none focus:ring-0"
-                                            placeholder="" value="2" required />
-                                        <button type="button" id="increment-button"
+                                        <span
+                                            class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-white focus:outline-none focus:ring-0">{{cantidad}}</span>
+                                        <button type="button" (click)="aumentarCantidad()" id="increment-button"
                                             data-input-counter-increment="counter-input"
                                             class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100">
                                             <svg class="h-2.5 w-2.5 text-gray-900" aria-hidden="true"

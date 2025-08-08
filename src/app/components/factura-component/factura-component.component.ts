@@ -5,8 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './factura-component.component.html',
-  styleUrl: './factura-component.component.css'
+  styleUrl: './factura-component.component.css',
 })
 export class FacturaComponentComponent {
-
 }

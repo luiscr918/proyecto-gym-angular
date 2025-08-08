@@ -4,23 +4,34 @@ import { FooterComponentComponent } from '../../components/footer-component/foot
 import { CommonModule } from '@angular/common';
 import { CarritoService } from '../../services/carrito.service';
 import { ProductoConId } from '../../interfaces/productos';
-import { FacturaComponentComponent } from "../../components/factura-component/factura-component.component";
+import { FacturaComponentComponent } from '../../components/factura-component/factura-component.component';
 
 @Component({
   selector: 'app-carrito-page',
   standalone: true,
-  imports: [NavBarComponent, FooterComponentComponent, CommonModule, FacturaComponentComponent],
+  imports: [
+    NavBarComponent,
+    FooterComponentComponent,
+    CommonModule,
+    FacturaComponentComponent,
+  ],
   templateUrl: './carrito-page.component.html',
   styleUrl: './carrito-page.component.css',
 })
 export class CarritoPageComponent {
   constructor(private servicioCarrito: CarritoService) {}
-
+  cantidad: number = 0;
   pedidos: ProductoConId[] = [];
   ngOnInit(): void {
     this.servicioCarrito.obtenerCarrito().subscribe((data) => {
       this.pedidos = data;
       console.log(this.pedidos);
     });
+  }
+  aumentarCantidad() {
+    this.cantidad = this.cantidad + 1;
+  }
+  disminuirCantidad() {
+    this.cantidad = this.cantidad - 1;
   }
 }
