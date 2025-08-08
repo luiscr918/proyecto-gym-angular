@@ -1,3 +1,13 @@
+export interface TeamMember {
+  id: number;
+  name: string;
+  position: string;
+  description: string;
+  image: string;
+  certifications: string[];
+  experience: string;
+  specialties: string[];
+}
 
 export interface CompanyValue {
   id: number;
