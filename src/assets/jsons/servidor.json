@@ -2,17 +2,6 @@
   "facturas": [],
   "usuarios": [
     {
-      "id": "USR-684070",
-      "nombre": "Alvaro Díaz",
-      "fechaNacimiento": "1989-02-07",
-      "sexo": "Masculino",
-      "documento": "1751723303",
-      "telefono": "0958993845",
-      "correo": "alvaro@gmail.com",
-      "direccion": "Gatazo y Manuel Prieto Oe-185",
-      "contrasenia": "123456"
-    },
-    {
       "id": "USR-623087",
       "nombre": "Daniel Heredia",
       "fechaNacimiento": "1997-06-03",
@@ -35,7 +24,42 @@
       "direccion": "Gatazo y Manuel Prieto Oe-185",
       "contrasenia": "123456",
       "rol": "admin"
+    },
+    {
+      "id": "USR-847037",
+      "nombre": "luis",
+      "fechaNacimiento": "2025-08-04",
+      "sexo": "Masculino",
+      "documento": "1726374810",
+      "telefono": "0999706036",
+      "correo": "luis@gmail.com",
+      "direccion": "Cutuglagua",
+      "contrasenia": "luis123",
+      "rol": "cliente"
     }
   ],
-  "carrito": []
+  "carrito": [
+    {
+      "id": "-OWpPp3upWiiVooeCt8h",
+      "categoria": "bebida",
+      "descripcion": "energizante vital de entreno",
+      "disponible": true,
+      "imagen": "https://m.media-amazon.com/images/I/713gI+Ywi1L._UF1000,1000_QL80_.jpg",
+      "nombre": "energizante de entreno",
+      "precio": 60,
+      "stock": 11,
+      "unidad": "unidades"
+    },
+    {
+      "id": "-OWpVUs8Vi6dg-V-tRh7",
+      "categoria": "comida",
+      "descripcion": "riquita barra",
+      "disponible": true,
+      "imagen": "https://thefoodtech.com/wp-content/uploads/2021/04/barras-energeticas.jpg",
+      "nombre": "barra energizante",
+      "precio": 16,
+      "stock": 2,
+      "unidad": "unidades"
+    }
+  ]
 }
