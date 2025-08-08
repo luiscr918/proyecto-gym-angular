@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Autentica } from '../../services/autentica';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,6 +12,16 @@ import { CommonModule } from '@angular/common';
 })
 export class NavBarComponent {
   isMenuOpen = false;
+  usuarioActual = this.autentica.getUsuarioActual();
+  get sesionIniciada() {
+    return this.autentica.sesionIniciada();
+  }
+
+  constructor(private autentica: Autentica, private router: Router) {
+    this.autentica.usuarioActual$.subscribe(usuario => {
+      this.usuarioActual = usuario;
+    });
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -18,5 +29,11 @@ export class NavBarComponent {
 
   closeMenu() {
     this.isMenuOpen = false;
+  }
+
+  logout() {
+    this.autentica.logout();
+    this.usuarioActual = this.autentica.getUsuarioActual();
+    this.router.navigate(['/login']);
   }
 }
