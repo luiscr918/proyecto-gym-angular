@@ -60,6 +60,28 @@
       "precio": 16,
       "stock": 2,
       "unidad": "unidades"
+    },
+    {
+      "id": "-OWpPDaMAiucBPmToO6P",
+      "categoria": "suplemento",
+      "descripcion": "riquita chocolatada",
+      "disponible": true,
+      "imagen": "https://cdn.shopify.com/s/files/1/0750/5936/4118/files/CATALOGO_DE_PRODUCTOS_STARK_alta_imagenes-04_1024x1024.png?v=1724443278",
+      "nombre": "chocolatada",
+      "precio": 50,
+      "stock": 1,
+      "unidad": "unidad"
+    },
+    {
+      "id": "-OWpPp3upWiiVooeCt8h",
+      "categoria": "bebida",
+      "descripcion": "energizante vital de entreno",
+      "disponible": true,
+      "imagen": "https://m.media-amazon.com/images/I/713gI+Ywi1L._UF1000,1000_QL80_.jpg",
+      "nombre": "energizante de entreno",
+      "precio": 60,
+      "stock": 11,
+      "unidad": "unidades"
     }
   ]
 }
