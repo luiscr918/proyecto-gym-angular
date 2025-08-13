@@ -17,7 +17,8 @@ export class ProductDetailsUsersComponent {
   constructor(
     private servicioProducto: ProductsService,
     private ruta: ActivatedRoute,
-    private servicioCarrito: CarritoService
+    private servicioCarrito: CarritoService,
+    private router: Router
   ) {}
 
   producto: Producto & { id: string } = {
@@ -46,7 +47,11 @@ export class ProductDetailsUsersComponent {
   }
   agregarAlCarrito = () => {
     this.servicioCarrito.agregarCarrito(this.producto).subscribe({
-      next: () => alert('Producto agregado al carrito'),
+      next: () => {
+        alert('Producto agregado al carrito');
+        this.router.navigate(['/carrito']);
+      },
+
       error: () => alert('Error al agregar al carrito'),
     });
   };
