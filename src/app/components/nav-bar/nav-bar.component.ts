@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Autentica } from '../../services/autentica';
+import { AutenticaService } from '../../services/autentica.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,7 +18,7 @@ export class NavBarComponent {
     return this.autentica.sesionIniciada();
   }
 
-  constructor(private autentica: Autentica, private router: Router) {
+  constructor(private autentica: AutenticaService, private router: Router) {
     this.autentica.usuarioActual$.subscribe(usuario => {
       this.usuarioActual = usuario;
     });

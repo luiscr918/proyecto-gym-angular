@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { Autentica } from '../../../services/autentica';
 import { NavBarComponent } from '../../nav-bar/nav-bar.component';
 import { FooterComponentComponent } from '../../footer-component/footer-component.component';
+import { AutenticaService } from '../../../services/autentica.service';
 
 @Component({
     selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent {
     loginForm: FormGroup;
     errorMsg: string = '';
 
-    constructor(private fb: FormBuilder, private router: Router, private autentica: Autentica) {
+    constructor(private fb: FormBuilder, private router: Router, private autentica: AutenticaService) {
         this.loginForm = this.fb.group({
             correo: ['', [Validators.required, Validators.email]],
             contrasenia: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
