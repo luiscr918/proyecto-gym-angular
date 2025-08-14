@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SuscripcionesService {
-
-  constructor(private http: HttpClient) { }
+ constructor(private http: HttpClient) { }
   
   private API_SUSCRIPCIONES = 'https://app-gym-74b74-default-rtdb.firebaseio.com/';
   
