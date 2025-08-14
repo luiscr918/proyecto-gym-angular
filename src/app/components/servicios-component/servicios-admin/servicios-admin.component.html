@@ -1,1 +1,31 @@
-<p>servicios-admin works!</p>
+<div class="relative overflow-x-auto mt-10">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <thead class="text-xs text-orange-500 uppercase bg-gray-900 dark:bg-gray-900 dark:text-orange-400">
+      <tr>
+        <th scope="col" class="px-6 py-3">Nombre</th>
+        <th scope="col" class="px-6 py-3">Descripción</th>
+        <th scope="col" class="px-6 py-3">Imagen</th>
+        <th scope="col" class="px-6 py-3">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (servicio of servicios; track servicio.id) {
+      <tr class="bg-black border-b border-orange-900">
+        <td class="px-6 py-4 text-orange-100">{{servicio.nombre}}</td>
+        <td class="px-6 py-4 text-orange-100">{{servicio.descripcion}}</td>
+        <td class="px-6 py-4"> 
+          <img src={{servicio.imagenURL}} alt={{servicio.nombre}} class="w-16 h-16 object-cover rounded-lg border border-orange-500" />
+        </td> 
+        <td class="px-6 py-4 flex gap-2">
+          <button 
+          [routerLink]="['/servicios-actualizar', servicio.id]"
+           class="bg-orange-500 hover:bg-orange-700 text-black font-bold py-2 px-4 rounded transition-all">Editar</button>
+          <button 
+          (click)="eliminar(servicio.id)"
+          class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-4 rounded transition-all">Eliminar</button>
+        </td>
+      </tr>
+    }
+    </tbody>
+  </table>
+</div>

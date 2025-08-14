@@ -1,1 +1,38 @@
-<p>servicios-actualizar works!</p>
+<div class="mt-28">
+  <form 
+  (ngSubmit)="editarSevicio(id, servicio)"
+  class="mt-10 mb-2 w-full max-w-md mx-auto bg-gradient-to-br from-black via-gray-900 to-orange-900 rounded-2xl shadow-xl border-2 border-orange-500 p-8">
+  <h2 class="text-2xl font-bold text-orange-500 mb-6 text-center">Registrar Servicio</h2>
+  <div class="mb-6 flex flex-col gap-6">
+    <div>
+      <label class="block mb-2 text-sm font-semibold text-orange-400">Nombre</label>
+      <input type="text"
+      [(ngModel)]="servicio.nombre"
+      name="nombre"
+        class="w-full bg-black/60 placeholder:text-orange-300 text-orange-100 text-base border border-orange-500 rounded-lg px-4 py-2 transition duration-300 focus:outline-none focus:border-orange-400 hover:border-orange-400 shadow-sm focus:shadow-lg"
+        placeholder="Nombre del servicio" />
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold text-orange-400">Descripción</label>
+      <input type="text"
+      [(ngModel)]="servicio.descripcion"
+      name="descripcion"
+        class="w-full bg-black/60 placeholder:text-orange-300 text-orange-100 text-base border border-orange-500 rounded-lg px-4 py-2 transition duration-300 focus:outline-none focus:border-orange-400 hover:border-orange-400 shadow-sm focus:shadow-lg"
+        placeholder="Descripción breve" />
+    </div>
+    <div>
+      <label class="block mb-2 text-sm font-semibold text-orange-400">URL Imagen</label>
+      <input type="text"
+      [(ngModel)]="servicio.imagenURL"
+      name="imagenURL"
+        class="w-full bg-black/60 placeholder:text-orange-300 text-orange-100 text-base border border-orange-500 rounded-lg px-4 py-2 transition duration-300 focus:outline-none focus:border-orange-400 hover:border-orange-400 shadow-sm focus:shadow-lg"
+        placeholder="https://..." />
+    </div>
+  </div>
+  <button
+    class="mt-4 w-full rounded-lg bg-orange-500 py-3 px-4 text-center text-base font-bold text-black transition-all shadow-md hover:bg-black hover:text-orange-500 border-2 border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+    type="submit">
+    Actualizar Servicio
+  </button>
+</form>
+</div>
