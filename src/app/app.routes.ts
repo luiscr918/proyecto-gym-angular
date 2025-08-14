@@ -1,16 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductsPageComponent } from './pages/products-page/products-page.component';
-import { ProductDatailsComponent } from './components/product-components/product-datails/product-datails.component';
 import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
-import { RegistroProductoComponent } from './components/product-components/registro-producto/registro-producto.component';
-import { ProductActualizarComponent } from './components/product-components/product-actualizar/product-actualizar.component';
 import { NosotrosPageComponent } from './pages/nosotros-page/nosotros-page.component';
 import { SuscripcionPageComponent } from './pages/suscripcion-page/suscripcion-page.component';
-import { ProductPageAdminComponent } from './pages/product-page-admin/product-page-admin.component';
-import { ProductDetailsUsersComponent } from './components/product-components-usuarios/product-details-users/product-details-users.component';
-import { CarritoPageComponent } from './pages/carrito-page/carrito-page.component';
-
 import { LoginComponent } from './components/usuarios-components/login/login.component';
 import { RegistroUsuarios } from './components/usuarios-components/registro-usuarios/registro-usuarios';
 import { loginCanMatchGuard } from './guards/login-can-match.guard';
@@ -19,37 +11,15 @@ import { authGuard, adminGuard, clienteGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
-  {
-    path: 'productos',
-    component: ProductsPageComponent,
-    canActivate: [authGuard, adminGuard],
-  },
-  {
-    path: 'productos/:id',
-    component: ProductDatailsComponent,
-    canActivate: [authGuard, adminGuard],
-  },
+
   { path: 'contactanos', component: ContactUsPageComponent },
-  { path: 'agregar-producto', component: RegistroProductoComponent },
   { path: 'nosotros', component: NosotrosPageComponent },
   { path: 'suscripcion', component: SuscripcionPageComponent },
-  { path: 'products/:id', component: ProductActualizarComponent },
-
-  {
-    path: 'productos-usuarios',
-    component: ProductPageAdminComponent,
-    canActivate: [authGuard, clienteGuard],
-  },
-  {
-    path: 'productos-usuario/:id',
-    component: ProductDetailsUsersComponent,
-    canActivate: [authGuard, clienteGuard],
-  },
   { path: 'login', component: LoginComponent, canMatch: [loginCanMatchGuard] },
   {
     path: 'registrar-usuario',
     component: RegistroUsuarios,
     canDeactivate: [registroUsuarioGuard],
   },
-  { path: 'carrito', component: CarritoPageComponent },
+
 ];

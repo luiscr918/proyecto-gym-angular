@@ -1,13 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, BehaviorSubject } from 'rxjs';
-import { Usuarios } from './usuarios';
+import { Usuarios } from '../interfaces/usuarios';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class Autentica {
-    private readonly API_URL = 'http://localhost:3000/usuarios';
+export class AutenticaService {
+  private readonly API_URL = 'http://localhost:3000/usuarios';
   private usuarioActualSubject = new BehaviorSubject<Usuarios>(new Usuarios());
   public usuarioActual$ = this.usuarioActualSubject.asObservable();
 
@@ -32,8 +32,7 @@ export class Autentica {
       })
     );
   }
-
-  registro(usuario: Usuarios): Observable<Usuarios> {
+   registro(usuario: Usuarios): Observable<Usuarios> {
     return this.http.post<Usuarios>(this.API_URL, usuario);
   }
 

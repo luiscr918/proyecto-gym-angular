@@ -1,10 +1,11 @@
 import { inject } from '@angular/core';
-import { Autentica } from '../services/autentica';
+
 import { Router } from '@angular/router';
 import { CanActivateFn } from '@angular/router';
+import { AutenticaService } from '../services/autentica.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-    const authServcio = inject(Autentica);
+    const authServcio = inject(AutenticaService);
     const router = inject(Router);
     if (authServcio.sesionIniciada()) {
         return true;
@@ -15,7 +16,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 };
 
 export const adminGuard: CanActivateFn = (route, state) => {
-    const authServcio = inject(Autentica);
+    const authServcio = inject(AutenticaService);
     const router = inject(Router);
     const usuario = authServcio.getUsuarioActual();
     if (authServcio.sesionIniciada() && usuario.rol === 'admin') {
@@ -26,7 +27,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
 };
 
 export const clienteGuard: CanActivateFn = (route, state) => {
-    const authServcio = inject(Autentica);
+    const authServcio = inject(AutenticaService);
     const router = inject(Router);
     const usuario = authServcio.getUsuarioActual();
     if (authServcio.sesionIniciada() && usuario.rol === 'cliente') {

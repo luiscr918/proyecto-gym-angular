@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CarritoPageComponent } from './carrito-page.component';
+import { PrimeroComponent } from './primero.component';
 
-describe('CarritoPageComponent', () => {
-  let component: CarritoPageComponent;
-  let fixture: ComponentFixture<CarritoPageComponent>;
+describe('PrimeroComponent', () => {
+  let component: PrimeroComponent;
+  let fixture: ComponentFixture<PrimeroComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarritoPageComponent]
+      imports: [PrimeroComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CarritoPageComponent);
+    fixture = TestBed.createComponent(PrimeroComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
