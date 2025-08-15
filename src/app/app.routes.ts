@@ -10,6 +10,33 @@ import { loginCanMatchGuard } from './guards/login-can-match.guard';
 import { registroUsuarioGuard } from './guards/registro-usuario.guard';
 import { authGuard, adminGuard, clienteGuard } from './guards/auth.guard';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { ClientesListaComponent } from './pages/clientes-lista/clientes-lista.component';
+import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
+
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'contactanos', component: ContactUsPageComponent },
@@ -22,4 +49,47 @@ export const routes: Routes = [
     component: RegistroUsuarios,
     canDeactivate: [registroUsuarioGuard],
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  {path:'lista-clientes',component:ClientesListaComponent},
+    { path: 'actualizar-cliente/:id', component: ClientesActualizarComponent },
 ];

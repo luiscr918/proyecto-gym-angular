@@ -3,7 +3,6 @@ import { Suscripcion } from './suscripcion';
 export interface Cliente {
   id?: number; // heredado de Usuario
   nombre: string; // heredado de Usuario
-  apellido: string; // heredado de Usuario
   email: string; // heredado de Usuario
   password: string; // heredado de Usuario
 

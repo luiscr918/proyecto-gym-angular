@@ -1,0 +1,76 @@
+<app-nav-bar></app-nav-bar>
+<div class="container mx-auto p-4 mt-32">
+    <h2 class="text-3xl font-bold text-center text-orange-500 mb-8">Lista de Clientes</h2>
+
+    <div class="overflow-x-auto bg-[#181c2f] rounded-xl shadow-lg border-2 border-orange-500 p-4">
+        <table class="min-w-full divide-y divide-orange-400">
+            <thead class="bg-[#23263a]">
+                <tr>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider rounded-tl-lg">
+                        ID</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Nombre
+                    </th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Email
+                    </th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Cédula
+                    </th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">
+                        Teléfono</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Género
+                    </th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Fecha
+                        Nac.</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">
+                        Dirección</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Peso
+                        (kg)</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider">Altura
+                        (m)</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider rounded-tr-lg">
+                        IMC</th>
+                    <th scope="col"
+                        class="px-6 py-3 text-left text-xs font-medium text-orange-300 uppercase tracking-wider rounded-tr-lg">
+                        OPCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="bg-[#181c2f] divide-y divide-orange-500">
+                <!-- Itera sobre la lista de clientes y muestra cada fila -->
+                @for (cliente of clientes; track cliente.id) {
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-200">{{ cliente.id }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.nombre }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.cedula }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.telefono }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.genero }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.fechaNacimiento }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.direccion }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.peso }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.altura }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{{ cliente.imc ?
+                        cliente.imc.toFixed(2) : 'N/A' }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm ">
+                        <button type="button"
+                        [routerLink]="['/actualizar-cliente',cliente.id]" routerLinkActive="router-link-active"
+                            class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Actualizar</button>
+                        <button (click)="eliminar(cliente.id??0)" type="button"
+                            class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Eliminar</button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<app-footer-component></app-footer-component>

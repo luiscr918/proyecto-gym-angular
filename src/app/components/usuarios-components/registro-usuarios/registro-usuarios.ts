@@ -14,16 +14,13 @@ import { FechaActualPipe } from '../../../pipes/fecha-actual.pipe';
   selector: 'app-registro-usuarios',
   standalone: true,
   templateUrl: './registro-usuarios.html',
-  imports: [
-    ReactiveFormsModule,
-    NavBarComponent,
-    FooterComponentComponent,
-  ],
+  imports: [ReactiveFormsModule, NavBarComponent, FooterComponentComponent],
   styleUrl: './registro-usuarios.css',
 })
 export class RegistroUsuarios {
   enviado: boolean = false;
   registroForm: FormGroup;
+  imc: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -33,39 +30,66 @@ export class RegistroUsuarios {
     this.registroForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       fechaNacimiento: ['', Validators.required],
-      sexo: ['', Validators.required],
-      documento: [
+      genero: ['', Validators.required],
+      cedula: [
         '',
         [Validators.required, Validators.pattern(/^[A-Za-z0-9]{6,20}$/)],
       ],
       telefono: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      correo: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       direccion: ['', [Validators.required, Validators.minLength(5)]],
-      contrasenia: [
+      password: [
         '',
         [
           Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(10),
+          /*           Validators.pattern(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+          ), */
         ],
       ],
-      peso:['',[Validators.required]],
-      altura:['',[Validators.required]]
+      peso: ['', [Validators.required]],
+      altura: ['', [Validators.required]],
+      imc: [{ value: '', disabled: true }],
     });
   }
+  //escuchar cambios y calcular imc automaticamente
+  ngOnInit(peso: number, altura: number) {
+    this.registroForm
+      .get('peso')
+      ?.valueChanges.subscribe(() => this.calcularIMC());
+    this.registroForm
+      .get('altura')
+      ?.valueChanges.subscribe(() => this.calcularIMC());
+  }
+  calcularIMC() {
+    const peso = this.registroForm.get('peso')?.value;
+    const altura = this.registroForm.get('altura')?.value;
 
+    if (peso && altura && altura > 0) {
+      this.imc = peso / (altura * altura);
+      this.registroForm.patchValue(
+        { imc: this.imc.toFixed(2) },
+        { emitEvent: false }
+      );
+    } else {
+      this.imc = 0;
+      this.registroForm.patchValue({ imc: '' }, { emitEvent: false });
+    }
+  }
   registrar() {
     if (this.registroForm.valid) {
       this.enviado = true;
       const usuario = {
         ...this.registroForm.getRawValue(),
-        id: this.registroForm.get('id')?.value,
-        rol: this.registroForm.get('rol')?.value,
+        imc: this.imc, // enviar imc calculado
+        peso: Number(this.registroForm.get('peso')?.value),
+        altura: Number(this.registroForm.get('altura')?.value),
+        rol: 'CLIENTE', // agregar rol aquí
       };
       this.usuariosService.registrarUsuario(usuario).subscribe({
-        next: (res) => {
+        next: () => {
           alert('Usuario registrado exitosamente');
-          this.router.navigate(['/login']);
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.error('Error al registrar usuario', err);

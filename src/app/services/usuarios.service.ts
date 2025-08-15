@@ -11,4 +11,24 @@ export class UsuariosService {
   registrarUsuario(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${this.apiUrl}/guardar`, cliente);
   }
+  //cargar todos los clientes
+  mostrarClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}/leer`);
+  }
+  //Delete
+  deleteCliente(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminar/${id}`);
+  }
+  //antes de actualizar buscar el Cliente por el id
+  buscarClienteId(id:number):Observable<Cliente>{
+    return this.http.get<Cliente>(`${this.apiUrl}/buscar/${id}`);
+  }
+  //Actualizar
+  actualizarCliente(id: number, Cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(
+      `${this.apiUrl}/actualizar/${id}`,
+      Cliente
+    );
+  }
+
 }

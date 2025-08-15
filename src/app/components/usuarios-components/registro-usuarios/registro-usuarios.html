@@ -22,23 +22,23 @@
 		}
 
 
-		<label for="sexo" class="block text-white font-semibold"> Género</label>
-		<select formControlName="sexo" id="sexo"
+		<label for="genero" class="block text-white font-semibold"> Género</label>
+		<select formControlName="genero" id="genero"
 			class="w-full px-4 py-2 border border-orange-300 rounded-lg bg-[#23263a] text-white">
 			<option value="" disabled selected>Seleccione</option>
 			<option value="Masculino">Masculino</option>
 			<option value="Femenino">Femenino</option>
 		</select>
-		@if (registroForm.get('sexo')?.invalid && registroForm.get('sexo')?.touched) {
+		@if (registroForm.get('genero')?.invalid && registroForm.get('genero')?.touched) {
 		<span class="text-red-500 text-sm">El sexo/género es obligatorio</span>
 		}
 
 
-		<label for="documento" class="block text-white font-semibold">Cédula</label>
-		<input type="text" formControlName="documento" id="documento"
+		<label for="cedula" class="block text-white font-semibold">Cédula</label>
+		<input type="text" formControlName="cedula" id="cedula"
 			class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
-			placeholder="Documento" />
-		@if (registroForm.get('documento')?.invalid && registroForm.get('documento')?.touched) {
+			placeholder="cedula" />
+		@if (registroForm.get('cedula')?.invalid && registroForm.get('cedula')?.touched) {
 		<span class="text-red-500 text-sm">Documento inválido (6-20 caracteres alfanuméricos)</span>
 		}
 
@@ -53,20 +53,20 @@
 		}
 
 
-		<label for="correo" class="block text-white font-semibold">Correo electrónico</label>
-		<input type="email" formControlName="correo" id="correo"
+		<label for="email" class="block text-white font-semibold">Correo electrónico</label>
+		<input type="email" formControlName="email" id="email"
 			class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
 			placeholder="ejemplo@correo.com" />
-		@if (registroForm.get('correo')?.invalid && registroForm.get('correo')?.touched) {
+		@if (registroForm.get('email')?.invalid && registroForm.get('email')?.touched) {
 		<span class="text-red-500 text-sm">Correo inválido</span>
 		}
 
 
-		<label for="contrasenia" class="block text-white font-semibold">Contraseña</label>
-		<input type="password" formControlName="contrasenia" id="contrasenia"
+		<label for="password" class="block text-white font-semibold">Contraseña</label>
+		<input type="password" formControlName="password" id="password"
 			class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
 			placeholder="Tu contraseña" />
-		@if (registroForm.get('contrasenia')?.invalid && registroForm.get('contrasenia')?.touched) {
+		@if (registroForm.get('password')?.invalid && registroForm.get('password')?.touched) {
 		<span class="text-red-500 text-sm">La contraseña es obligatoria (6-10 caracteres)</span>
 		}
 
@@ -93,9 +93,7 @@
 		<span class="text-red-500 text-sm">La altura es invalida</span>
 		}
 		<label for="imc" class="block text-white font-semibold">IMC</label>
-		<input
-		readonly
-		type="number" formControlName="imc" id="imc"
+		<input readonly type="number" formControlName="imc" id="imc"
 			class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400" />
 
 

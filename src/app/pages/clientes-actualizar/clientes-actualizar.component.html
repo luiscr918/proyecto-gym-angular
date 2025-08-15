@@ -1,0 +1,87 @@
+<app-nav-bar></app-nav-bar>
+<div class="max-w-md mx-auto mt-32 p-8 bg-[#181c2f] rounded-xl shadow-lg border-2 border-orange-500">
+    <h2 class="text-2xl font-bold text-center text-orange-500 mb-6">
+        Registro Usuarios
+    </h2>
+    <form (ngSubmit)="editarCliente(id,cliente)" class="space-y-4">
+
+        <label for="nombre" class="block text-white font-semibold">Nombre completo</label>
+        <input type="text" [(ngModel)]="cliente.nombre" id="nombre" name="nombre"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="Tu nombre completo" />
+
+
+
+        <label for="fechaNacimiento" class="block text-white font-semibold">Fecha de nacimiento</label>
+        <input type="date" [(ngModel)]="cliente.fechaNacimiento" name="fechaNacimiento" id="fechaNacimiento"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400" />
+
+
+
+        <label for="genero" class="block text-white font-semibold"> Género</label>
+        <select [(ngModel)]="cliente.genero" id="genero" name="genero"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg bg-[#23263a] text-white">
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+
+
+
+        <label for="cedula" class="block text-white font-semibold">Cédula</label>
+        <input type="text" [(ngModel)]="cliente.cedula" id="cedula" name="cedula"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="cedula" />
+
+
+
+
+        <label for="telefono" class="block text-white font-semibold">Teléfono celular</label>
+        <input type="text" [(ngModel)]="cliente.telefono" id="telefono" name="telefono"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="Teléfono" />
+
+
+
+        <label for="email" class="block text-white font-semibold">Correo electrónico</label>
+        <input type="email" [(ngModel)]="cliente.email" id="email" name="email"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="ejemplo@correo.com" />
+
+
+
+        <label for="password" class="block text-white font-semibold">Contraseña</label>
+        <input type="text" [(ngModel)]="cliente.password" id="password" name="password"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="Tu contraseña" />
+
+
+
+        <label for="direccion" class="block text-white font-semibold">Dirección</label>
+        <input type="text" [(ngModel)]="cliente.direccion" id="direccion" name="direccion"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="Dirección" />
+
+        <label for="peso" class="block text-white font-semibold">Peso</label>
+        <input type="number" [(ngModel)]="cliente.peso" id="peso" name="peso"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="peso" />
+
+        <label for="altura" class="block text-white font-semibold">Altura</label>
+        <input type="number" [(ngModel)]="cliente.altura" id="altura" name="altura"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400"
+            placeholder="altura" />
+
+        <label for="imc" class="block text-white font-semibold">IMC</label>
+        <input readonly type="number" [(ngModel)]="cliente.imc" id="imc" name="imc"
+            class="w-full px-4 py-2 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 bg-[#23263a] text-white placeholder:text-gray-400" />
+
+
+        <button type="submit"
+            class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-300">
+            ACTUALIZAR
+        </button>
+    </form>
+</div>
+
+<app-footer-component></app-footer-component>
