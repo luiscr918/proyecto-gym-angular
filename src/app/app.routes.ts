@@ -11,31 +11,6 @@ import { ServiciosListaComponent } from './pages/servicios-lista-page/servicios-
 import { ServiciosAdminPageComponent } from './pages/servicios-admin-page/servicios-admin-page.component';
 import { ServiciosActualizarComponent } from './components/servicios-component/servicios-actualizar/servicios-actualizar.component';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { ClientesListaComponent } from './pages/clientes-lista/clientes-lista.component';
 import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
 
@@ -51,46 +26,17 @@ export const routes: Routes = [
     canDeactivate: [registroUsuarioGuard],
   },
 
+  { path: 'login', component: LoginComponent, canMatch: [loginCanMatchGuard] },
+  {
+    path: 'registrar-usuario',
+    component: RegistroUsuarios,
+    canDeactivate: [registroUsuarioGuard],
+  },
+  { path: 'servicios', component: ServiciosPagesComponent },
+  { path: 'servicios-actualizar/:id', component: ServiciosActualizarComponent },
+  { path: 'servicios-registro', component: ServiciosAdminPageComponent },
+  { path: 'servicios-lista', component: ServiciosListaComponent },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {path:'lista-clientes',component:ClientesListaComponent},
-    { path: 'actualizar-cliente/:id', component: ClientesActualizarComponent },
+  { path: 'lista-clientes', component: ClientesListaComponent },
+  { path: 'actualizar-cliente/:id', component: ClientesActualizarComponent },
 ];
