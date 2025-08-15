@@ -7,9 +7,9 @@ import { RegistroUsuarios } from './components/usuarios-components/registro-usua
 import { loginCanMatchGuard } from './guards/login-can-match.guard';
 import { registroUsuarioGuard } from './guards/registro-usuario.guard';
 import { ServiciosPagesComponent } from './pages/servicios-pages/servicios-pages.component';
-import { ServiciosActualizarComponent } from './pages/servicios-actualizar-page/servicios-actualizar.component';
 import { ServiciosListaComponent } from './pages/servicios-lista-page/servicios-lista.component';
 import { ServiciosAdminPageComponent } from './pages/servicios-admin-page/servicios-admin-page.component';
+import { ServiciosActualizarComponent } from './components/servicios-component/servicios-actualizar/servicios-actualizar.component';
 
 
 export const routes: Routes = [
