@@ -30,5 +30,8 @@ export class UsuariosService {
       Cliente
     );
   }
+  buscarClienteConSuscripciones(id: number): Observable<Cliente> {
+  return this.http.get<Cliente>(`${this.apiUrl}/buscarConSuscripciones/${id}`);
+}
 
 }

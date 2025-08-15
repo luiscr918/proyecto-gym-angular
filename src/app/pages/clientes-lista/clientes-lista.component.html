@@ -69,7 +69,8 @@
                         <button type="button" [routerLink]="['/suscripcion',cliente.id]"
                             routerLinkActive="router-link-active"
                             class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Suscripcion</button>
-                        <button type="button"
+                        <button type="button" [routerLink]="['/panel-cliente',cliente.id]"
+                            routerLinkActive="router-link-active"
                             class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900">Panel</button>
                     </td>
                 </tr>

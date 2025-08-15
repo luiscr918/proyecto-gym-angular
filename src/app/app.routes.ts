@@ -13,6 +13,8 @@ import { ServiciosActualizarComponent } from './components/servicios-component/s
 
 import { ClientesListaComponent } from './pages/clientes-lista/clientes-lista.component';
 import { ClientesActualizarComponent } from './pages/clientes-actualizar/clientes-actualizar.component';
+import { PanelClienteComponentComponent } from './pages/panel-cliente-component/panel-cliente-component.component';
+import { ContactUsPageComponent } from './pages/contact-us-page/contact-us-page.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -39,4 +41,6 @@ export const routes: Routes = [
 
   { path: 'lista-clientes', component: ClientesListaComponent },
   { path: 'actualizar-cliente/:id', component: ClientesActualizarComponent },
+  { path: 'panel-cliente/:id', component: PanelClienteComponentComponent },
+  { path: 'contactos', component: ContactUsPageComponent },
 ];
