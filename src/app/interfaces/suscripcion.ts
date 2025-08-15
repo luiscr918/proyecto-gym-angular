@@ -1,7 +1,7 @@
 import { Cliente } from "./cliente";
 
 export interface Suscripcion {
-  id: number;
+  id?: number;
   plan: string;
   fechaInicio: string; // formato "yyyy-mm-dd"
   fechaFin: string;    // formato "yyyy-mm-dd"

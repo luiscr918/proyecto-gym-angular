@@ -1,191 +1,70 @@
-<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-orange-900 py-12 px-2 mt-5">
-  <div class="w-full max-w-lg mx-auto p-8 bg-gradient-to-br from-black via-gray-900 to-orange-900 rounded-3xl shadow-xl border-4 border-double border-orange-500 backdrop-blur-md relative">
-    <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-orange-500 rounded-full p-3 shadow-lg flex items-center justify-center">
-      <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    </div>
-    <div *ngIf="mostrarMensaje" 
-         class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 max-w-md mx-auto p-6 bg-green-100 border-2 border-green-400 rounded-xl shadow-2xl animate-bounce">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <svg class="w-8 h-8 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-          <div>
-            <h3 class="text-lg font-bold text-green-800">¡Suscripción Exitosa!</h3>
-            <p class="text-green-700 text-sm">{{ mensajeExito }}</p>
-          </div>
-        </div>
-        <button (click)="cerrarMensaje()" class="text-green-600 hover:text-green-800 ml-4">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+<form (ngSubmit)="agregarSuscripcion(formulario)" #formulario="ngForm" class="space-y-4">
 
-    <h2 class="text-4xl font-extrabold text-center text-orange-500 mb-2 tracking-tight drop-shadow-lg">Registro de Suscripción</h2>
-    <p class="text-center text-lg text-orange-400 mb-6 font-semibold tracking-wide">FORTADER GYM</p>
-  
-  <form (ngSubmit)="agregarSuscripcion(formulario)" #formulario="ngForm" class="space-y-4">
-    
-    <div>
-      <label for="nombre" class="block text-orange-400 font-semibold mb-1">Nombre Completo</label>
-      <div class="relative">
-        <input 
-          type="text" 
-          [(ngModel)]="nombre" 
-          id="nombre" 
-          name="nombre" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" 
-          placeholder="Ingresa tu nombre completo"
-        />
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 15c2.5 0 4.847.657 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        </span>
-      </div>
-    </div>
-
-    <div>
-      <label for="email" class="block text-orange-400 font-semibold mb-1">Correo Electrónico</label>
-      <div class="relative">
-        <input 
-          type="email" 
-          [(ngModel)]="email" 
-          id="email" 
-          name="email" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" 
-          placeholder="ejemplo@correo.com"
-        />
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12A4 4 0 1 1 8 12a4 4 0 0 1 8 0zm2 6v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/></svg>
-        </span>
-      </div>
-    </div>
-
-    
-    <div>
-      <label for="telefono" class="block text-orange-400 font-semibold mb-1">Teléfono</label>
-      <div class="relative">
-        <input 
-          type="tel" 
-          [(ngModel)]="telefono" 
-          id="telefono" 
-          name="telefono" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" 
-          placeholder="0999-999-999"
-        />
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2zm13 0a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 01-1 1h-2a1 1 0 01-1-1v-2z"/></svg>
-        </span>
-      </div>
-    </div>
-
-    
-    <div>
-      <label for="direccion" class="block text-orange-400 font-semibold mb-1">Dirección</label>
-      <div class="relative">
-        <input 
-          type="text" 
-          [(ngModel)]="direccion" 
-          id="direccion" 
-          name="direccion" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" 
-          placeholder="Tu dirección completa"
-        />
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243M15 11V7a2 2 0 00-2-2H7a2 2 0 00-2 2v4"/></svg>
-        </span>
-      </div>
-    </div>
-
-    
-    <div>
-      <label for="fechaNacimiento" class="block text-orange-400 font-semibold mb-1">Fecha de Nacimiento</label>
-      <div class="relative">
-        <input 
-          type="date" 
-          [(ngModel)]="fechaNacimiento" 
-          id="fechaNacimiento" 
-          name="fechaNacimiento" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300"
-        />
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        </span>
-      </div>
-    </div>
-
-    
-    <div>
-      <label for="genero" class="block text-orange-400 font-semibold mb-1">Género</label>
-      <div class="relative">
-        <select 
-          [(ngModel)]="genero" 
-          id="genero" 
-          name="genero" 
-          required
-          class="w-full pl-12 pr-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white transition-all duration-300">
-          <option value="">Selecciona tu género</option>
-          <option value="masculino">Masculino</option>
-          <option value="femenino">Femenino</option>
-          <option value="otro">Otro</option>
-        </select>
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-orange-400">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 7v-7"/></svg>
-        </span>
-      </div>
-    </div>
-
-    
-    <div>
-      <label for="planSuscripcion" class="block text-orange-400 font-semibold mb-2">Plan de Suscripción</label>
-      <div class="space-y-3">
-        <div *ngFor="let plan of planes" class="flex items-center p-3 border border-orange-300 rounded-lg hover:bg-gradient-to-r hover:from-orange-500 hover:to-black transition-colors duration-200">
-          <input 
-            type="radio" 
-            [(ngModel)]="planSuscripcion" 
-            [value]="plan.id"
-            [id]="plan.id"
-            name="planSuscripcion" 
-            required
-            class="mr-3 text-orange-500 focus:ring-orange-500"
-          />
-          <label [for]="plan.id" class="flex-1 cursor-pointer">
-            <div class="font-semibold text-orange-400">{{ plan.nombre }}</div>
-            <div class="text-sm text-gray-300">{{ plan.descripcion }}</div>
-            <div class="text-lg font-bold text-orange-500">${{ plan.precio }}/mes</div>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    
-    <button 
-      type="submit" 
-      [disabled]="!formulario.valid"
-      class="w-full mt-6 bg-gradient-to-r from-orange-500 to-black hover:from-black hover:to-orange-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:text-orange-500 animate-pulse">
-      <span class="flex items-center justify-center">
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-        </svg>
-        Suscribirse al Gym
-      </span>
-    </button>
-  </form>
-
-  
-  <div class="mt-6 p-4 bg-gradient-to-r from-orange-900 via-black to-orange-900 rounded-lg border-2 border-orange-500">
-    <h3 class="font-semibold text-orange-400 mb-4 text-lg flex items-center gap-2"><svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01"/></svg>¿Por qué elegir FORTADER GYM?</h3>
-    <ul class="text-sm text-orange-200 space-y-2">
-      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4"/></svg>Equipamiento de última generación</li>
-      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Entrenadores certificados</li>
-      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 17l4 4 4-4m-4-5v9"/></svg>Horarios flexibles</li>
-      <li class="flex items-center gap-2"><svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 15s1.5 2 4 2 4-2 4-2"/></svg>Ambiente motivador</li>
-    </ul>
+  <div>
+    <label for="nombre" class="block text-orange-400 font-semibold mb-1">Nombre Completo</label>
+    <input type="text" [(ngModel)]="cliente.nombre" id="nombre" name="nombre" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300"
+      placeholder="Ingresa tu nombre completo" />
   </div>
-</div>
+
+  <div>
+    <label for="email" class="block text-orange-400 font-semibold mb-1">Correo Electrónico</label>
+    <input type="email" [(ngModel)]="cliente.email" id="email" name="email" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300"
+      placeholder="ejemplo@correo.com" />
+  </div>
+
+  <div>
+    <label for="telefono" class="block text-orange-400 font-semibold mb-1">Teléfono</label>
+    <input type="tel" [(ngModel)]="cliente.telefono" id="telefono" name="telefono" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300"
+      placeholder="0999-999-999" />
+  </div>
+
+  <div>
+    <label for="direccion" class="block text-orange-400 font-semibold mb-1">Dirección</label>
+    <input type="text" [(ngModel)]="cliente.direccion" id="direccion" name="direccion" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300"
+      placeholder="Tu dirección completa" />
+  </div>
+
+  <div>
+    <label for="fechaNacimiento" class="block text-orange-400 font-semibold mb-1">Fecha de Nacimiento</label>
+    <input type="date" [(ngModel)]="cliente.fechaNacimiento" id="fechaNacimiento" name="fechaNacimiento" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" />
+  </div>
+
+  <div>
+    <label for="genero" class="block text-orange-400 font-semibold mb-1">Género</label>
+    <input type="text" [(ngModel)]="cliente.genero" id="genero" name="genero" required
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 bg-black text-white placeholder-orange-300 transition-all duration-300" />
+  </div>
+
+  <div>
+    <label for="planSuscripcion" class="block text-orange-400 font-semibold mb-2">Plan de Suscripción</label>
+    <select [(ngModel)]="planSuscripcion" name="planSuscripcion" id="planSuscripcion" required
+      (change)="onPlanOrFechaInicioChange()"
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg bg-black text-white">
+      <option value="" disabled selected>Selecciona un plan</option>
+      <option *ngFor="let plan of planes" [value]="plan.id">{{ plan.nombre }} - ${{ plan.precio }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="fechaInicio" class="block text-orange-400 font-semibold mb-1">Fecha de Inicio</label>
+    <input type="date" [(ngModel)]="fechaInicio" name="fechaInicio" id="fechaInicio" required
+      (change)="onPlanOrFechaInicioChange()"
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg bg-black text-white" />
+  </div>
+
+  <div>
+    <label for="fechaFin" class="block text-orange-400 font-semibold mb-1">Fecha de Fin</label>
+    <input type="date" [value]="fechaFin" name="fechaFin" id="fechaFin" readonly
+      class="w-full pl-4 py-3 border border-orange-400 rounded-lg bg-black text-white" />
+  </div>
+
+  <button type="submit" [disabled]="!formulario.valid"
+    class="w-full mt-6 bg-gradient-to-r from-orange-500 to-black hover:from-black hover:to-orange-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:text-orange-500 animate-pulse">
+    Suscribirse al Gym
+  </button>
+</form>

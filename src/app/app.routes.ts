@@ -41,7 +41,7 @@ export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'contactanos', component: ContactUsPageComponent },
   { path: 'nosotros', component: NosotrosPageComponent },
-  { path: 'suscripcion', component: SuscripcionPageComponent },
+  { path: 'suscripcion/:id', component: SuscripcionPageComponent },
 
   { path: 'login', component: LoginComponent, canMatch: [loginCanMatchGuard] },
   {
@@ -89,7 +89,7 @@ export const routes: Routes = [
 
 
 
-  
+
   {path:'lista-clientes',component:ClientesListaComponent},
     { path: 'actualizar-cliente/:id', component: ClientesActualizarComponent },
 ];
