@@ -18,9 +18,6 @@ import { FechaActualPipe } from '../../../pipes/fecha-actual.pipe';
     ReactiveFormsModule,
     NavBarComponent,
     FooterComponentComponent,
-    NombreUsuarioRegistroPipe,
-    EmailRegistroPipe,
-    FechaActualPipe
   ],
   styleUrl: './registro-usuarios.css',
 })
@@ -34,7 +31,6 @@ export class RegistroUsuarios {
     private usuariosService: UsuariosService
   ) {
     this.registroForm = this.fb.group({
-      id: [{ value: this.generarId(), disabled: true }],
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       fechaNacimiento: ['', Validators.required],
       sexo: ['', Validators.required],
@@ -53,12 +49,9 @@ export class RegistroUsuarios {
           Validators.maxLength(10),
         ],
       ],
-      rol: ['cliente', Validators.required],
+      peso:['',[Validators.required]],
+      altura:['',[Validators.required]]
     });
-  }
-
-  generarId(): string {
-    return 'USR-' + Math.floor(Math.random() * 1000000);
   }
 
   registrar() {
